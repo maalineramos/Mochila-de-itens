@@ -1,123 +1,64 @@
-# 🔫🎒 Desafio Código da Ilha – Edição Free Fire
+# Mochila de Itens em C (Projeto de ADS)
 
-Bem-vindo ao **Desafio Código da Ilha – Edição Free Fire!**  
-Neste desafio, você irá simular o gerenciamento de um **inventário de sobrevivência** em uma ilha misteriosa, utilizando a linguagem **C**.
+Este projeto foi desenvolvido como parte de um exercício do meu curso de **Análise e Desenvolvimento de Sistemas (ADS)**, em uma fase em que eu estava tendo um dos meus **primeiros contatos com C e com programação no geral**.
 
-A empresa **MateCheck** encarregou você de desenvolver o sistema de **mochila virtual** que ajudará os sobreviventes a se prepararem para escapar da ilha.  
-O desafio é dividido em três níveis: **Novato**, **Aventureiro** e **Mestre**, cada um com mais complexidade e poder.
+A proposta foi criar um sistema simples de terminal para simular uma mochila de itens (inspirada no tema Free Fire), praticando lógica, organização de dados e interação com o usuário.
 
+## Intuito do exercício
 
-## 🎮 Nível Novato: Inventário Básico
+O principal objetivo da atividade era consolidar fundamentos de programação estruturada em C, como:
 
-### 🚩 Objetivo
+- uso de `struct` para representar dados de forma organizada;
+- manipulação de vetores estáticos;
+- construção de menu interativo com `do...while` e `switch`;
+- criação de funções para separar responsabilidades;
+- aplicação de algoritmos clássicos de ordenação e busca.
 
-Criar um programa em C com as seguintes funcionalidades:
+Em resumo, o exercício foi pensado para transformar teoria em prática e mostrar como problemas reais podem ser resolvidos com lógica passo a passo.
 
-- Adicionar itens à mochila (**nome**, **tipo** e **quantidade**)
-- Remover itens pelo nome
-- Listar os itens cadastrados
+## O que foi implementado no programa
 
-### ⚙️ Funcionalidades
+O código atual representa a versão mais completa do desafio (nível mestre), contendo:
 
-- Utilização de `struct` para representar cada item
-- Vetor estático com capacidade para até **10 itens**
-- Leitura e escrita via terminal (`scanf`, `printf`)
-- Menu interativo com `switch` e `do-while`
+1. **Cadastro de itens**
+   - Cada item possui: `nome`, `tipo`, `quantidade` e `prioridade`.
+   - A mochila suporta até 10 itens.
 
-### 🧠 Simplicidade
+2. **Remoção de itens**
+   - É possível remover um item pelo nome.
+   - Quando removido, os próximos itens do vetor são deslocados para manter a estrutura consistente.
 
-- Sem ordenações, buscas especializadas ou uso de ponteiros
-- Ideal para praticar manipulação básica de estruturas e arrays
+3. **Listagem formatada**
+   - Exibição em formato de tabela com todos os itens cadastrados.
 
-### 📥 Entrada
+4. **Ordenação por critério**
+   - Ordenação por **nome**, **tipo** ou **prioridade**.
+   - Uso do algoritmo **Insertion Sort**.
+   - Contagem de comparações para observar desempenho.
 
-O usuário escolhe ações no menu e preenche os dados dos itens conforme solicitado.
+5. **Busca binária por nome**
+   - Busca rápida de item por nome.
+   - Só é permitida quando a lista está ordenada por nome (pré-requisito da busca binária).
+   - Exibe item encontrado e número de comparações.
 
-### 📤 Saída
+## Conceitos praticados
 
-O programa exibe os dados organizados em formato de tabela, com nome, tipo e quantidade.
+Durante a construção desse exercício, foram praticados pontos importantes para quem está começando:
 
+- tipos compostos com `struct`;
+- `enum` para critérios de ordenação;
+- controle de fluxo e validações básicas;
+- comparação de strings com `strcmp`;
+- noções de eficiência com busca sequencial x busca binária;
+- organização de código em funções.
 
+## Aprendizado
 
-## 🛡️ Nível Aventureiro: Mochila com Busca
+Mesmo sendo um projeto inicial, ele foi importante para entender como montar um programa completo do início ao fim:
 
-### 🆕 Diferenças em relação ao Nível Novato
+- receber dados do usuário;
+- processar regras de negócio;
+- exibir saídas claras;
+- evoluir a solução em níveis de complexidade.
 
-- Implementação de **busca sequencial** por nome
-- Novidade no menu: opção de **"Buscar item por nome"**
-- Exibição detalhada do item encontrado
-
-### ⚙️ Funcionalidades
-
-- O usuário pode procurar qualquer item já inserido
-- Se encontrado, o programa exibe seus atributos
-- Caso contrário, exibe mensagem de erro amigável
-
-### 💡 Conceitos Adicionados
-
-- **Busca sequencial**
-- **Comparação de strings** (`strcmp`)
-- **Controle com flag** para indicar se item foi encontrado
-
-### 📥 Entrada
-
-O usuário digita o nome do item que deseja buscar.
-
-### 📤 Saída
-
-- Detalhes completos do item (nome, tipo, quantidade)
-- Ou uma mensagem de erro, se não for encontrado
-
----
-
-## 🧠 Nível Mestre: Ordenação e Busca Binária
-
-### 🆕 Diferenças em relação ao Nível Aventureiro
-
-- Adição do campo **prioridade** aos itens (valores de 1 a 5)
-- Possibilidade de **ordenar** a mochila por **nome**, **tipo** ou **prioridade**
-- Implementação da **busca binária** por nome com verificação de ordenação
-
-### ⚙️ Funcionalidades
-
-- **Menu de ordenação**: o jogador escolhe o critério desejado
-- Contador de **comparações na ordenação** para análise de desempenho
-- **Busca binária** com validação de pré-requisito (lista deve estar ordenada por nome)
-
-### 💡 Conceitos Adicionados
-
-- **Enumeração** (`enum`) para critérios de ordenação
-- **Ordenação com Insertion Sort**
-- **Busca binária** (`binary search`)
-- Uso de **bool** para controle de estado
-- **Análise de desempenho** com contador de comparações
-
-### 📥 Entrada
-
-O usuário:
-
-1. Adiciona itens com prioridade
-2. Ordena os itens
-3. Realiza busca binária pelo nome do item
-
-### 📤 Saída
-
-- Mochila **ordenada** com base no critério escolhido
-- Exibição dos **dados do item buscado** ou mensagem de erro
-- **Quantidade de comparações** realizadas durante a ordenação
-
-
-
-## 🏁 Conclusão
-
-Ao completar qualquer nível do **Desafio Código da Ilha – Edição Free Fire**, você terá avançado significativamente na programação em **C**, desenvolvendo habilidades práticas de:
-
-- Manipulação de **estruturas e arrays**
-- Criação de **menus interativos**
-- Implementação de **buscas e ordenações**
-- **Pensamento modular** e boas práticas de software
-
-Cada nível representa uma missão rumo à **sobrevivência total**.  
-Escolha seu nível, prepare sua mochila... e **boa sorte na ilha!** 🏝️💼🔍
-
-> Equipe de Ensino – MateCheck
+Esse trabalho marcou uma etapa importante da minha formação em ADS e serviu como base para projetos mais avançados depois.
